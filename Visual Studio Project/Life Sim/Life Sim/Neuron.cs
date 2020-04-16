@@ -37,7 +37,7 @@ public class Neuron
     {
         numIncomingConnections = 0;
         numIncomingReceived = 0;
-        currentValue = -1;
+        currentValue = 0;
         bias = _bias;
     }
 

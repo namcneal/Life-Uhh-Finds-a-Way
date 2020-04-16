@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 public class Brain {
-    List<Neuron> inputNeurons   = new List<Neuron>();
-    List<Neuron> hiddenNeurons = new List<Neuron>();
-    List<Neuron> outputNeurons = new List<Neuron>();
+    public List<Neuron> inputNeurons   = new List<Neuron>();
+    public List<Neuron> hiddenNeurons = new List<Neuron>();
+    public List<Neuron> outputNeurons = new List<Neuron>();
 
     public Brain()
     {

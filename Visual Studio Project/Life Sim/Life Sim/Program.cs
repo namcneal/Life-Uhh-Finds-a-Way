@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Life_Sim
 {
@@ -12,7 +13,21 @@ namespace Life_Sim
             Neuron input = new Neuron(0);
             Neuron output = new Neuron(0);
 
+            brain.addInputNeuron(input);
+            brain.addOutputNeuron(output);
             brain.connectNeurons(input, output, 1);
+
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine("test_vals.txt")))
+            {
+
+                for(float i = -50; i <= 50; i += 0.1F)
+                {
+                    brain.inputNeurons[0].currentValue = i;
+                    brain.triggerFiringCascade();
+                    outputFile.WriteLine(brain.outputNeurons[0].currentValue);
+                }
+                
+            }
         }
     }
 }
