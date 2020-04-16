@@ -11,7 +11,7 @@ public class Neuron
     public float bias;
 
     // The type of neuron: initial (sensory), hidden, or terminal
-    public string type;
+    // public string type;
 
     // The number of connections from which the neuron expects to receive
     protected int numIncomingConnections;
@@ -33,13 +33,12 @@ public class Neuron
               reasonable initial values. 
     Returns: None
     */
-    public Neuron(float _bias, string _type)
+    public Neuron(float _bias)
     {
         numIncomingConnections = 0;
         numIncomingReceived = 0;
         currentValue = -1;
         bias = _bias;
-        type = _type;
     }
 
     /*

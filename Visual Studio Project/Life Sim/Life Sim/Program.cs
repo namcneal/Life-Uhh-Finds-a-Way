@@ -8,6 +8,11 @@ namespace Life_Sim
         {
             Console.WriteLine("Hello World!");
             Brain brain = new Brain();
+
+            Neuron input = new Neuron(0);
+            Neuron output = new Neuron(0);
+
+            brain.connectNeurons(input, output, 1);
         }
     }
 }
