@@ -6,10 +6,10 @@ public class Neuron
 {
     // The current value of the neuron. It will be a potentially large 
     // until the neuron is activated, as each input will be added to it.
-    public double currentValue;
+    public float currentValue;
 
     // The bias that is added to the neuron's value before activation
-    public double bias;
+    public float bias;
 
     // The type of neuron: initial (sensory), hidden, or terminal
     public string type;
@@ -26,7 +26,7 @@ public class Neuron
 
     // The weights associated with all the target neurons. They are
     // put in the same order so the nth target gets the nth weight
-    protected List<double> targetWeights = new List<double>();
+    protected List<float> targetWeights = new List<float>();
 
     /* 
     Requires: A bias for the neuron and a type description
@@ -34,7 +34,7 @@ public class Neuron
               reasonable initial values. 
     Returns: None
     */
-    public Neuron(double _bias, string _type)
+    public Neuron(float _bias, string _type)
     {
         numIncomingConnections = 0;
         numIncomingReceived = 0;
@@ -50,7 +50,7 @@ public class Neuron
                incrementing its number of incoming connections by one. 
      Returns: Nothing
      */
-    void addOutgoingConnection(Neuron targetNeuron, double weight)
+    void addOutgoingConnection(Neuron targetNeuron, float weight)
     {
         targetNeurons.Add(targetNeuron);
         targetWeights.Add(weight);
@@ -58,11 +58,11 @@ public class Neuron
     }
 
     /*
-    Requires: A double
+    Requires: A float
     Modifies: Nothing
     Returns:  The logistic sigmoid of the input
     */
-    public double LogSigmoid(double x)
+    public float LogSigmoid(float x)
     {
         if (x < -45.0) return 0.0;
         else if (x > 45.0) return 1.0;
