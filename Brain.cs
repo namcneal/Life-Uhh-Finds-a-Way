@@ -26,6 +26,13 @@ public class Brain {
     {
         initial.addOutgoingConnection(terminal, connectionWeight);
     }
+
+    public void triggerFiringCascade()
+    {
+        foreach (Neuron neuron in inputNeurons){
+            neuron.fire();
+        }
+    }
     
 }
 

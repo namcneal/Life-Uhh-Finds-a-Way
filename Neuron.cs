@@ -97,11 +97,12 @@ public class Neuron
             targetNeurons[i].currentValue += targetWeights[i] * currentValue;
 
             // Cause the target neuron to activate if all its connections 
-            // have fired
+            // have fired. After activation it should fire, creating a cascade.
             if (targetNeurons[i].numIncomingReceived ==
                targetNeurons[i].numIncomingConnections)
             {
                 targetNeurons[i].activate();
+                targetNeurons[i].fire();
             }
         }
 
