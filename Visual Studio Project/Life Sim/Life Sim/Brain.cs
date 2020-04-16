@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Brain {
-    List<Neuron> inputNeuron   = new List<Neuron>();
+    List<Neuron> inputNeurons   = new List<Neuron>();
     List<Neuron> hiddenNeurons = new List<Neuron>();
     List<Neuron> outputNeurons = new List<Neuron>();
 
@@ -14,17 +13,17 @@ public class Brain {
 
     public void addInputNeuron(Neuron newAddition)
     {
-        inputNeurons.add(newNeuron);
+        inputNeurons.Add(newAddition);
     }
 
     public void addHiddenNeuron(Neuron newAddition)
     {
-        hiddenNeurons.add(newNeuron);
+        hiddenNeurons.Add(newAddition);
     }
 
     public void addOutputNeuron(Neuron newAddition)
     {
-        outputNeurons.add(newNeuron);
+        outputNeurons.Add(newAddition);
     }
 
     public void connectNeurons(Neuron initial, Neuron terminal, float connectionWeight)

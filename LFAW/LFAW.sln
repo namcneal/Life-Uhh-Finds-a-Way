@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5372ABE8-3169-4A40-A565-96067AE76343}"
 	ProjectSection(SolutionItems) = preProject
 		..\Brain.cs = ..\Brain.cs
+		..\test.cs = ..\test.cs
 		..\Cell.cs = ..\Cell.cs
 		..\Neuron.cs = ..\Neuron.cs
 	EndProjectSection
