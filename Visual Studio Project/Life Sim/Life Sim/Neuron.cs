@@ -77,7 +77,8 @@ public class Neuron
     void activate()
     {
         currentValue += bias;
-        currentValue = LogSigmoid(currentValue);
+        currentValue = 0;
+        //currentValue = LogSigmoid(currentValue);
     }
 
     /*
@@ -88,26 +89,33 @@ public class Neuron
     */
     public void fire()
     {
-        for (int i = 0; i < targetNeurons.Count; i++)
+        // This will only run for input and hidden neurons. The output neurons 
+        // will have a different firing routine
+        if(targetNeurons.Count > 0)
         {
-            // Add the current value of this neuron to the target neuron
-            // after scaling it with the neuron's appropriate weight.
-            targetNeurons[i].currentValue += targetWeights[i] * currentValue;
-
-            // Cause the target neuron to activate if all its connections 
-            // have fired. After activation it should fire, creating a cascade.
-            if (targetNeurons[i].numIncomingReceived ==
-               targetNeurons[i].numIncomingConnections)
+            for (int i = 0; i < targetNeurons.Count; i++)
             {
-                targetNeurons[i].activate();
-                targetNeurons[i].fire();
-            }
-        }
+                // Add the current value of this neuron to the target neuron
+                // after scaling it with the neuron's appropriate weight.
+                targetNeurons[i].currentValue += targetWeights[i] * currentValue;
+                targetNeurons[i].numIncomingReceived += 1;
 
-        // After firing the neuron's value should reset so there's a blank
-        // slate to which all incoming connections can add when they fire.
-        // This is really only important for hidden and terminal neurons.
-        currentValue = 0;
+                // Cause the target neuron to activate if all its connections 
+                // have fired. After activation it should fire, creating a cascade.
+                if (targetNeurons[i].numIncomingReceived ==
+                   targetNeurons[i].numIncomingConnections)
+                {
+                    targetNeurons[i].activate();
+                    targetNeurons[i].fire();
+                }
+            }
+
+            // After firing the neuron's value should reset so there's a blank
+            // slate to which all incoming connections can add when they fire.
+            // This is really only important for hidden and terminal neurons.
+            currentValue = 0;
+        }
+        
     }
 }
 
