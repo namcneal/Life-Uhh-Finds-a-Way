@@ -6,4 +6,8 @@
     <RootNamespace>Life_Sim</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Test Brain and Basic Neuron Connections.cs" />
+  </ItemGroup>
+
 </Project>
