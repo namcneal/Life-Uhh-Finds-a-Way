@@ -3,7 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Life_Sim</RootNamespace>
+    <RootNamespace>Life_Uhh_Finds_a_Way</RootNamespace>
+    <AssemblyName>Life Uhh Finds a Way</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
